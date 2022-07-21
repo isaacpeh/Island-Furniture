@@ -89,7 +89,7 @@ document.write('\
                     </li>\
                     <li class="dropdown">\
                         <a class="dropdown-toggle" href="#">\
-                            All Departments<i class="icon icon-angle-down"></i>\
+                            Product Categories<i class="icon icon-angle-down"></i>\
                         </a>\
                         <ul class="dropdown-menu">\
                             <li><a id="tableDeskLink"><i class="icon icon-map-marker"></i> Tables & Desk</a></li>\

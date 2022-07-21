@@ -5,7 +5,8 @@ var dbconnect = {
             host: "localhost",
             user: "root",
             password: "yourownpassword",
-            database: "islandfurniture-it07"
+            database: "islandfurniture-it07",
+            port:3307
         });
         return conn;
     }
