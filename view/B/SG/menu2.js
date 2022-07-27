@@ -57,7 +57,6 @@ document.write('\
         <div id="menuLoggedIn" style="display: none;">\
             <nav>\
                 <ul class="nav nav-pills nav-top">\
-                    <li><a id="memberName"></a></li>\
                     <li class="storeLocationMenu">\
                         <a href="/B/' + countryPrefix + '/storeLocation.html"><i class="icon icon-map-marker"></i>Store Location</a>\
                     </li>\
@@ -73,6 +72,7 @@ document.write('\
                     <li>\
                         <a href="#" onclick="logout()"><i class="icon icon-unlock-alt"></i>Logout</a>\
                     </li>\
+                    <li><a id="memberName"></a></li>\
                 </ul>\
                 <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">\
                     <i class="icon icon-bars"></i>\
