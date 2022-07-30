@@ -80,23 +80,25 @@
                                 }
                             }
                         }
+                                   
+                        for (i = 0; i < orderIdList.length; i++) {
+                            htmlTxt += '<h5>Order #' + (i + 1) + '</h5>';
+                            var counter = 0;
+                            //get bought items by order ID
+                            for (j = 0; j < boughtItem.length; j++) {
+                            
+                                if(boughtItem[j].id == orderIdList[i]) {
+                                    var item = boughtItem[j];
+                                    //display top level info
+                                    if(counter == 0) {
+                                        let options = {
+                                            weekday: "long", year: "numeric", month: "long",  
+                                            day: "numeric", hour: "2-digit", minute: "2-digit"  
+                                        };
+                                        var datePurchased = (new Date(item.createddate)).toLocaleTimeString('en-us', options);
+                                        var deliveryDate = addWorkDays(new Date(item.createddate), 5);
+                                        htmlTxt += '\
 
-                        htmlTxt += '<h5>Order #' + (1) + '</h5>';
-                        var counter = 0;
-                        //get bought items by order ID
-                        for (j = 0; j < boughtItem.length; j++) {
-
-                            if (boughtItem[j].id == orderIdList[0]) {
-                                var item = boughtItem[j];
-                                //display top level info
-                                if (counter == 0) {
-                                    let options = {
-                                        weekday: "long", year: "numeric", month: "long",
-                                        day: "numeric", hour: "2-digit", minute: "2-digit"
-                                    };
-                                    var datePurchased = (new Date(item.createddate)).toLocaleTimeString('en-us', options);
-                                    var deliveryDate = addWorkDays(new Date(item.createddate), 5);
-                                    htmlTxt += '\
                                             <h6>Date Purchased: ' + datePurchased + '</h6>\
                                             <h6>Estimated Delivery Date: ' + deliveryDate + '</h6>\
                                             <h6 style="text-decoration:underline; font-weight:bold">Delivery Details:</h6>\
@@ -127,11 +129,11 @@
                                                                 </tr>\
                                                             </thead>\
                                                             <tbody>';
-                        for (y = 0; y < boughtItem.length; y++) {
-
-                            if (boughtItem[y].id == orderIdList[0]) {
-                                var product = boughtItem[y];
-                                htmlTxt += '\
+                                                            
+                            for (y = 0; y < boughtItem.length; y++) {
+                                if (boughtItem[y].id == orderIdList[i]) {
+                                    var product = boughtItem[y];
+                                    htmlTxt += '\
                                         <tr class="cart_table_item">\
                                             <td class="product-thumbnail">\
                                                 <a href="/B/' + countryPrefix + '/furnitureProductDetails.html?sku=' + product.sku + '"><img width="100" height="100" alt="" class="img-responsive" src="' + product.imageUrl + '"></a>\
@@ -171,7 +173,9 @@
                                         </div>\
                                     </div>\
                                 </div>';
-                        finalPrice = 0;
+
+                            finalPrice = 0;
+                        }
 
                         htmlTxt += '<h4 style="font-weight: bold; padding-left: 20px">Total Amount Spent: $' + overallPrice + '</h4>';
                         document.getElementById("salesHistoryTab").innerHTML = htmlTxt;
