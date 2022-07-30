@@ -80,25 +80,24 @@
                                 }
                             }
                         }
-                                   
+
                         for (i = 0; i < orderIdList.length; i++) {
                             htmlTxt += '<h5>Order #' + (i + 1) + '</h5>';
                             var counter = 0;
                             //get bought items by order ID
                             for (j = 0; j < boughtItem.length; j++) {
-                            
-                                if(boughtItem[j].id == orderIdList[i]) {
+
+                                if (boughtItem[j].id == orderIdList[i]) {
                                     var item = boughtItem[j];
                                     //display top level info
-                                    if(counter == 0) {
+                                    if (counter == 0) {
                                         let options = {
-                                            weekday: "long", year: "numeric", month: "long",  
-                                            day: "numeric", hour: "2-digit", minute: "2-digit"  
+                                            weekday: "long", year: "numeric", month: "long",
+                                            day: "numeric", hour: "2-digit", minute: "2-digit"
                                         };
                                         var datePurchased = (new Date(item.createddate)).toLocaleTimeString('en-us', options);
                                         var deliveryDate = addWorkDays(new Date(item.createddate), 5);
                                         htmlTxt += '\
-
                                             <h6>Date Purchased: ' + datePurchased + '</h6>\
                                             <h6>Estimated Delivery Date: ' + deliveryDate + '</h6>\
                                             <h6 style="text-decoration:underline; font-weight:bold">Delivery Details:</h6>\
@@ -106,12 +105,12 @@
                                             <h6>Postal Code: ' + item.postalCode + '</h6>\
                                             <h6>Name: ' + item.customerName + '</h6>\
                                             <h6>Contact Number: ' + item.phone + '</h6>';
-                                    counter++;
+                                        counter++;
+                                    }
                                 }
                             }
-                        }
-                        //display table info
-                        htmlTxt += '\
+                            //display table info
+                            htmlTxt += '\
                                 <div class="row">\
                                     <div class="col-md-12">\
                                         <div class="row featured-boxes">\
@@ -129,7 +128,7 @@
                                                                 </tr>\
                                                             </thead>\
                                                             <tbody>';
-                                                            
+
                             for (y = 0; y < boughtItem.length; y++) {
                                 if (boughtItem[y].id == orderIdList[i]) {
                                     var product = boughtItem[y];
@@ -151,11 +150,11 @@
                                                 $<span class="amount">' + product.retailPrice.toFixed(2) * product.quantity + '</span>\
                                             </td>\
                                         </tr>';
-                                finalPrice += product.retailPrice.toFixed(2) * product.quantity;
-                                overallPrice += product.retailPrice.toFixed(2) * product.quantity;
+                                    finalPrice += product.retailPrice.toFixed(2) * product.quantity;
+                                    overallPrice += product.retailPrice.toFixed(2) * product.quantity;
+                                }
                             }
-                        }
-                        htmlTxt += '\
+                            htmlTxt += '\
                                                                 <tr>\
                                                                     <td></td>\
                                                                     <td></td>\

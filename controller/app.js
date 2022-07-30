@@ -19,7 +19,7 @@ app.use(require('./storagebinentityDB.js'));
 
 let middleware = require('./middleware');
 app.get('/api/checkToken', middleware.checkToken, function (req, res) {
-    res.send({success: true});
+    res.send({ success: true });
 });
 
 module.exports = app
